@@ -1,1 +1,1 @@
-# in-class-exercises-and-examples
+# Exercises and Examples From Class
