@@ -1,6 +1,8 @@
 '''For this exercise, you are going to write a program that models the 
 basketball shooting game, HORSE.
 
+First, rename this file to horse.py
+
 - This game has two players.
 - Players alternate taking shots, and, if they miss, they get a letter.
 - For the purposes of this exercise, it will be random whether a player makes
