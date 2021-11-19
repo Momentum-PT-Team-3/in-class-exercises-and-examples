@@ -62,7 +62,7 @@ ___
 	print(number)
 	> NameError: name 'number' is not defined
 	```
-- But if we **call* the function, by writing its name and passing argument(s), we see:
+- But if we **call** the function, by writing its name and passing argument(s), we see:
 	```py
 	double(6)
 	> The value of "number" is now 6.
