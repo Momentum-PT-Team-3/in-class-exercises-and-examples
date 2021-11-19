@@ -41,7 +41,7 @@ ___
 		a = None
 	- You may encounter ```global``` in reference to variables. Global variables have unusual behavior, and are generally avoided in Python.
 ---
-- **Functions** are repeatable chunks of code. The can take input, return output, and cause side effects, all though they don't *have* to do any of those things. ![Function](/function.png "Function")
+- **Functions** are repeatable chunks of code. The can take input, return output, and cause side effects, all though they don't *have* to do any of those things. ![Function](function.png "Function")
 
 ---
 - Functions are defined like this with (), a : at the end of the line, and the body of the function indented. Python knows the function is over when there are no more indented lines. 
