@@ -57,7 +57,7 @@ ___
 		print(f'The value of "number" is now {number}.')
 		return number * 2
 	```
-- The **parameters** can be thought of as **placeholders**. When the function is called, the values that are assigned to the parameters are **arguments**, the actual values.
+- The **parameters** can be thought of as **placeholders**. When the function is called, the values that are assigned to the parameters are **arguments**, the **actual** values.
 	```py
 	print(number)
 	> NameError: name 'number' is not defined
