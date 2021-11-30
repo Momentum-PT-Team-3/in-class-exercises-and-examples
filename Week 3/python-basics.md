@@ -5,7 +5,7 @@
 _There are more than these, but these are the types we will handle the most._
 
 - **Numbers**  
-	- Integers (Positive and negative whole numbers, including 0) 
+	- Integers 9Positive and negative whole numbers, including 0) 
 		- ```3, 9, 0, -5```   
 	- Floats (Decimals BUT they are inexact and should not be used for money).  
 		- ```5.9, -0.14, 4.0```
@@ -33,38 +33,46 @@ ___
 
 ## Variables and Functions
 
-- **Variables** are like containers that hold values in memory. 
-	- In python, variables are declared when they are assigned. That is, they exist at the moment you say they are equal to something.  
+- **Variables** are like containers that hold values in memory. More accurately, they are markers that point to values in memory, but the container idea can be helpful at first for visualizing.
+	- In python, variables are declared when they are assigned. That is, they exist when you say they are equal to something.  
 		```py
 		name = "Jeanette"
 		max = 100
 		a = None
-	- You may encounter ```global``` in reference to variables. Global variables have unusual behavior, and are generally avoided in Python.
 ---
-- **Functions** are repeatable chunks of code. The can take input, return output, and cause side effects, all though they don't *have* to do any of those things. ![Function](function.png "Function")
+- **Functions** are repeatable sets of commands that can take input, can return output, and can have side effects. *Repeatable* is a key aspect of functions and a major reason that we write them. Functions package a set of commands together, so they can be called with one line. The *signature* of a function is the line in which it is defined. It always ends with a colon(:), and the contents of the function are indented. 
+	- The simplest possible function is this:
 
----
-- Functions are defined like this with (), a : at the end of the line, and the body of the function indented. Python knows the function is over when there are no more indented lines. 
-	```py
-	def my_function():
-		return True
+	```py 
+	def do_nothing():
+		pass
 	```
+	This function is syntactically correct Python, so it runs when called,  but the function takes no input, returns no output, and has no side effects.
+	- In order for functions to run, we must call them by name. A function merely being defined doesn't cause anything to happen. _The actions in the function happen when the function is called_. We would call the above function like this:
+	```py
+	do_nothing()
+	```
+	And I would expect to see no output.
+	Note that I can call a function in the Python shell, where I see the `>>>` prompt, or I can call the function within a bigger Python program, a file with the extension `.py`. If I want to run that program, in the terminal I would run
+	> `python my_program.py`
 ---
-
-- If we want our function to take input, we add **parameters**, variables that are containers to accept the input when the function is **called**.
+- **Parameters** are placeholders in the signature line of a function, in anticipation of input. When the function is called, actual _arguments_ are passed and assigned to the placeholder tags. The function then does what it is instructed to do with the input. For example, if we have a function called `double` that's meant to return double a number, we would write it like this:
 	```py
 	def double(number):
-		print(f'The value of "number" is now {number}.')
-		return number * 2
+		double_number = 2 * number
+		print(f"Twice your number is {double_number}.")
+		return double_number
 	```
-- The **parameters** can be thought of as **placeholders**. When the function is called, the values that are assigned to the parameters are **arguments**, the **actual** values.
+	Why are `print` and `return` both there? `print` shows values in the terminal for humans to read, `return` makes values accessible in the computer's memory, so `print` is for people, and `return` is for the code.
+
+- When we want to call the function and pass an **argument**, for example, the integer 5, we do this:
 	```py
-	print(number)
-	> NameError: name 'number' is not defined
+	double(5)
 	```
-- But if we **call** the function, by writing its name and passing argument(s), we see:
+	and we see this in the terminal:
 	```py
-	double(6)
-	> The value of "number" is now 6.
+	Twice your number is 10.
 	```
+	- What would you see if you called the function on -3? How about if we passed a string like "word?"
 ---
+
