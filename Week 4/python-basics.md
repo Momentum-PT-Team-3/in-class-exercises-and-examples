@@ -16,7 +16,7 @@ _There are more than these, but these are the types we will handle the most._
 - **Strings**
 	- Collections of characters. Can be letters, numbers, symbols, or spaces.
 		```"Beyoncé", "Chapter 1", "!@#$%!"```  
-
+ 
 - **Booleans**
 	- Like an on/off switch or a lightbulb. Two options for values, either ```True``` or ```False```  
 	- Beyond these two values, there are values that are considered "truthy or falsy" because they can be [represented with a Boolean](https://www.freecodecamp.org/news/truthy-and-falsy-values-in-python/).

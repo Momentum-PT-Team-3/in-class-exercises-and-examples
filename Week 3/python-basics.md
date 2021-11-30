@@ -5,7 +5,7 @@
 _There are more than these, but these are the types we will handle the most._
 
 - **Numbers**  
-	- Integers 9Positive and negative whole numbers, including 0) 
+	- Integers (Positive and negative whole numbers, including 0) 
 		- ```3, 9, 0, -5```   
 	- Floats (Decimals BUT they are inexact and should not be used for money).  
 		- ```5.9, -0.14, 4.0```
