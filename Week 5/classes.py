@@ -59,4 +59,4 @@ class Band:
         return self.name
 
 mouse_rat = Band("Mouse Rat")
-print(f'The members of {band.name} are {mouse_rat.members}')
+print(f'The members of {mouse_rat.name} are {mouse_rat.members}')
