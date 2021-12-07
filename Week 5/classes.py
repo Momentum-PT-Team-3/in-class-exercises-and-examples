@@ -6,12 +6,14 @@
 # then fix it so it has the desired output.
 
 def remove_short_words(word_list):
+    long_words = []
     for word in word_list:
-        if len(word) <= 1:
-            word_list.pop(word_list.index(word))
-    print(word_list)
-    return word_list
+        if len(word) > 1:
+            long_words.append(word)
+    print(long_words)
+    return long_words
 
+# make your own test lists to try it out
 test_list = ["words", "are", "simple", "a", "cat", "I"]
 
 remove_short_words(test_list)
