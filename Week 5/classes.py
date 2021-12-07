@@ -10,3 +10,4 @@ def remove_short_words(word_list):
         if len(word) < 1:
             word_list.pop()
     return word_list
+    
