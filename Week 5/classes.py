@@ -81,7 +81,6 @@ mouse_rat.show_members
 # get values of attributes for new members
 member_info_tuples = [("Laurell", "harmonica"), ("Vanessa", "drums"), ("Samuel", "piano")]
 
-# new_members = []
 # create a musician instance for each new member
 for member_tuple in member_info_tuples:
     name, instrument = member_tuple
