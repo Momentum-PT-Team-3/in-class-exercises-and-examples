@@ -1,5 +1,34 @@
-<h1>This are my classes:</h1>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% for class in classes %}
-<p>{{class}} taught by {{class.teacher}} </p>
-{% endfor %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tachyons/4.11.1/tachyons.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Home</title>
+</head>
+
+<body>
+    <header>
+    </header>
+    <section class="pa4">
+        <table class="f4 w-100 mw8 center">
+            <thead>
+                <tr class='stripe-dark'>
+                    <th class='bg-hot-pink'>Today's Classes</th>
+                </tr>
+            </thead>
+            {% for class in classes %}
+            <tr class='stripe-dark'>
+                <td>{{class}} taught by {{class.teacher}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </section>
+</body>
+
+</html>
