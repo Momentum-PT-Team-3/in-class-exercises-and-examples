@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class='tc'>
 <h1>Edit {{ selected_class }}</h1>
-<form action="" method="post">
+<form class='tl' action="" method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Save</button>
 </form>
+</div>
 {% endblock %}

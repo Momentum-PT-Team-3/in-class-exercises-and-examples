@@ -1,6 +1,14 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
+DAY_CHOICES = [
+    ('MON', 'Monday'),
+    ('TUES', 'Tuesday'),
+    ('WED', 'Wednesday'),
+    ('THURS', 'Thursday'),
+]
+
+
 
 class User(AbstractUser):
     pass
@@ -8,6 +16,7 @@ class User(AbstractUser):
 
 class DanceClass(models.Model):
     name = models.CharField(max_length=100)
+    day = models.CharField(max_length=5, choices=DAY_CHOICES, blank=True, null=True)
     time = models.CharField(max_length=10, blank=True, null=True)
     length = models.IntegerField(blank=True, null=True)
     teachers = models.ManyToManyField(to='Teacher', related_name="classes")

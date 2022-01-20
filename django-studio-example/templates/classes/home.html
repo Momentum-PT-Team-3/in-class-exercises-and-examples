@@ -2,26 +2,30 @@
 {% block content %}
     <header>
     </header>
+    <div class='tc'>
     <section class="pa4">
         <table class="f4 w-100 mw8 center">
             <thead>
                 <tr class='stripe-dark'>
                     <th class='bg-hot-pink'>Today's Classes</th>
+                    <th class='bg-hot-pink'>Teacher 1</th>
+                    <th class='bg-hot-pink'>Teacher 2</th>
                 </tr>
             </thead>
             {% for class in classes %}
             <tr class='stripe-dark'>
-                <td>{{class}} taught by</td>
+                <td>{{class}}</td>
                 {% for teacher in class.teachers.all %}
                 <td>{{teacher}}</td>
                 {% endfor %}
             </tr>
             {% endfor %}
         </table>
+    </section>
         <div class='ph3'>
             <a class="f6 link dim br-pill ph3 pv2 mb2 dib white bg-hot-pink" href="{% url 'add-class' %}">Add A Class</a>
         </div>
-    </section>
+    </div>
 
 
 {% endblock %}
