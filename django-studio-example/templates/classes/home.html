@@ -1,18 +1,5 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tachyons/4.11.1/tachyons.min.css">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <title>Home</title>
-</head>
-
-<body>
+{% extends 'base.html' %}
+{% block content %}
     <header>
     </header>
     <section class="pa4">
@@ -24,7 +11,10 @@
             </thead>
             {% for class in classes %}
             <tr class='stripe-dark'>
-                <td>{{class}} taught by {{class.teacher}}</td>
+                <td>{{class}} taught by</td>
+                {% for teacher in class.teachers.all %}
+                <td>{{teacher}}</td>
+                {% endfor %}
             </tr>
             {% endfor %}
         </table>
@@ -32,6 +22,6 @@
             <a class="f6 link dim br-pill ph3 pv2 mb2 dib white bg-hot-pink" href="{% url 'add-class' %}">Add A Class</a>
         </div>
     </section>
-</body>
 
-</html>
+
+{% endblock %}

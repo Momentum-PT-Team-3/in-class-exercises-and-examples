@@ -1,11 +1,11 @@
 from django.forms import ModelForm
-from .models import Class
+from .models import DanceClass
 
 
-class ClassForm(ModelForm):
+class DanceClassForm(ModelForm):
     class Meta:
-        model = Class
-        fields = ['name', 'time', 'length', 'teacher']
+        model = DanceClass
+        fields = ['name', 'time', 'length', 'teachers']
 
 
  

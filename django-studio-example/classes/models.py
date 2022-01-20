@@ -6,14 +6,31 @@ class User(AbstractUser):
     pass
 
 
-class Class(models.Model):
+class DanceClass(models.Model):
     name = models.CharField(max_length=100)
     time = models.CharField(max_length=10, blank=True, null=True)
     length = models.IntegerField(blank=True, null=True)
-    teacher = models.CharField(max_length=100, blank=True, null=True)
+    teachers = models.ManyToManyField(to='Teacher', related_name="classes")
+    style = models.ForeignKey(to='Style', on_delete=models.CASCADE, blank=True, null=True, related_name="classes")
 
     class Meta:
         verbose_name_plural = "classes"
 
     def __str__(self):
         return self.name
+
+
+class Style(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+
+class Teacher(models.Model):
+    name = models.CharField(max_length=100)
+    cell_number = models.CharField(max_length=20, blank=True, null=True)
+
+    def __str__(self):
+        return self.name
+
