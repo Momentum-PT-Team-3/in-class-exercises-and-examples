@@ -23,7 +23,11 @@
         </table>
     </section>
         <div class='ph3'>
-            <a class="f6 link dim br-pill ph3 pv2 mb2 dib white bg-hot-pink" href="{% url 'add-class' %}">Add A Class</a>
+            <form action="{% url 'add-class' %}" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="f6 link dim br-pill ph3 pv2 mb2 dib white bg-hot-pink" type="submit">Add Class</button>
+            </form>
         </div>
     </div>
 

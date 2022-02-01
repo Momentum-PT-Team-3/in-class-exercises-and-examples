@@ -6,7 +6,8 @@ from .models import DanceClass
 
 def index(request):
     classes = DanceClass.objects.all()
-    return render(request, 'classes/home.html', {'classes': classes})
+    form = DanceClassForm()
+    return render(request, 'classes/home.html', {'classes': classes, 'form': form})
 
 def add_class(request):
     if request.method == "POST":
