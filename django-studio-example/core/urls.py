@@ -22,5 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name="home"),
     path('classes/new', views.add_class, name='add-class'),
-    path('classes/<int:pk>/edit', views.edit_class, name='edit-class')
+    path('classes/<int:pk>/edit', views.edit_class, name='edit-class'),
+    path('api/teachers/new', views.ajax_add_teacher, name="ajax-add-teacher"),
 ]

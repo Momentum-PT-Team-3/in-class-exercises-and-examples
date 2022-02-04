@@ -1,8 +1,10 @@
+import json
 from functools import reduce
 from django.forms import forms
+from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import DanceClassForm
-from .models import DanceClass
+from .models import DanceClass, Teacher
 
 def index(request):
     classes = DanceClass.objects.all()
@@ -29,3 +31,11 @@ def edit_class(request, pk):
     else:
         form = DanceClassForm(instance=selected_class)
     return render(request, 'classes/edit_class.html', {'form': form, 'selected_class': selected_class})
+
+def ajax_add_teacher(request):
+    # new_teacher_name = json.load(request)[]
+    # new_teacher = Teacher.objects.create(name=new_teacher_name)
+    # data = {
+    #     'new_teacher': 'created'
+    # }
+    return JsonResponse({'status': 'ok'})

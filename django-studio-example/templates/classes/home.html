@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
-    <header>
-    </header>
-    <div class='tc'>
+<header>
+</header>
+<div class='tc'>
+    <section class="ba bw3 b--green f2 lh-copy" id="weather-data" class='pa4'></section>
     <section class="pa4">
         <table class="f4 w-100 mw8 center">
             <thead>
@@ -22,14 +23,19 @@
             {% endfor %}
         </table>
     </section>
-        <div class='ph3'>
-            <form action="{% url 'add-class' %}" method="post">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button class="f6 link dim br-pill ph3 pv2 mb2 dib white bg-hot-pink" type="submit">Add Class</button>
-            </form>
-        </div>
+    <div class='ph3'>
+        <form id='class-form' action="{% url 'add-class' %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="f6 link dim br-pill ph3 pv2 mb2 dib white bg-hot-pink" type="submit">Add Class</button>
+        </form>
+        <form id='teacher-form' class='tl' action="" method="post">
+            {% csrf_token %}
+            <input type="text" name="Teacher Name" id="teacher-name">
+            <button type="submit">Add A Teacher</button>
+        </form>
     </div>
+</div>
 
 
 {% endblock %}
