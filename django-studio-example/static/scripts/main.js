@@ -20,15 +20,21 @@ function getCookie(name) {
 const csrftoken = getCookie('csrftoken');
 
 let classForm = document.querySelector('#class-form')
-let teacherForm = document.querySelector('#teacher-form')
 let temp = document.querySelector('#weather-data')
+
+let danceClasses = document.querySelectorAll('.dance-classes')
+
+for (let danceClass of danceClasses){
+    //do something
+}
 // check if js found the div
 const teacherURL = 'api/teachers/new'
+let teacherForm = document.querySelector('#teacher-form')
 
 // when submit button is clicked, perform a function
 // event refers to the click of the button
 classForm.addEventListener('submit', function (event){
-    event.preventDefault()
+    // event.preventDefault()
     console.log(event.target)
 })
 

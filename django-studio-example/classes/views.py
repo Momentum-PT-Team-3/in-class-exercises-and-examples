@@ -1,5 +1,6 @@
 import json
 from functools import reduce
+import re
 from django.forms import forms
 from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
@@ -18,6 +19,7 @@ def index(request):
 
 def add_class(request):
     if request.method == "POST":
+        print(request.POST)
         form = DanceClassForm(request.POST)
         if form.is_valid():
             new_class = form.save()
@@ -39,11 +41,12 @@ def edit_class(request, pk):
 
 def ajax_add_teacher(request):
     if request.method == 'POST':
-        teacher_name = request.POST.get('Teacher Name')
+        print(request.POST)
+        teacher_name = request.POST.get('teacher-name')
         teacher = Teacher.objects.create(name=teacher_name)
         data = {
             'new_teacher': 'created',
-            'name': teacher_name
+            'name': teacher.name
         }
     else:
         data = {'status': 'not ok'}

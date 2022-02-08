@@ -14,7 +14,7 @@
                 </tr>
             </thead>
             {% for class in classes %}
-            <tr class='stripe-dark'>
+            <tr class='stripe-dark dance-class'>
                 <td>{{class}}</td>
                 {% for teacher in class.teachers.all %}
                 <td>{{teacher}}</td>
@@ -31,7 +31,7 @@
         </form>
         <form id='teacher-form' class='tl' action="" method="post">
             {% csrf_token %}
-            <input type="text" name="Teacher Name" id="teacher-name">
+            <input type="text" name="teacher-name" id="teacher-name">
             <button type="submit">Add A Teacher</button>
         </form>
     </div>
