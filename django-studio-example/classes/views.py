@@ -9,7 +9,12 @@ from .models import DanceClass, Teacher
 def index(request):
     classes = DanceClass.objects.all()
     form = DanceClassForm()
-    return render(request, 'classes/home.html', {'classes': classes, 'form': form})
+    context = {
+        'classes': classes, 
+        'form': form
+        }
+
+    return render(request, 'classes/home.html', context=context)
 
 def add_class(request):
     if request.method == "POST":
@@ -33,9 +38,14 @@ def edit_class(request, pk):
     return render(request, 'classes/edit_class.html', {'form': form, 'selected_class': selected_class})
 
 def ajax_add_teacher(request):
-    # new_teacher_name = json.load(request)[]
-    # new_teacher = Teacher.objects.create(name=new_teacher_name)
-    # data = {
-    #     'new_teacher': 'created'
-    # }
-    return JsonResponse({'status': 'ok'})
+    if request.method == 'POST':
+        teacher_name = request.POST.get('Teacher Name')
+        teacher = Teacher.objects.create(name=teacher_name)
+        data = {
+            'new_teacher': 'created',
+            'name': teacher_name
+        }
+    else:
+        data = {'status': 'not ok'}
+    print(data)
+    return JsonResponse(data)

@@ -23,7 +23,7 @@ let classForm = document.querySelector('#class-form')
 let teacherForm = document.querySelector('#teacher-form')
 let temp = document.querySelector('#weather-data')
 // check if js found the div
-const teacherURL = 'api/teacher/new'
+const teacherURL = 'api/teachers/new'
 
 // when submit button is clicked, perform a function
 // event refers to the click of the button
@@ -35,6 +35,7 @@ classForm.addEventListener('submit', function (event){
 teacherForm.addEventListener('submit', function (event){
     event.preventDefault()
     console.log(event.target)
+    formData = new FormData(teacherForm)
     fetch(teacherURL, {
         method: 'POST',
         credentials: 'same-origin',
@@ -43,7 +44,7 @@ teacherForm.addEventListener('submit', function (event){
             'X-Request-With': 'XMLHttpRequest',
             'X-CSRFToken': csrftoken,
         },
-        body: JSON.stringify({'form_data': "Data from my form"})
+        body: formData
     })
     .then(response => {
         return response.json()
@@ -56,7 +57,7 @@ teacherForm.addEventListener('submit', function (event){
 
 
 let forecast
-
+// Get data from an external api and put it on your page
 fetch("https://weatherapi-com.p.rapidapi.com/forecast.json?q=Durham&days=1", {
 	"method": "GET",
 	"headers": {
@@ -68,6 +69,7 @@ fetch("https://weatherapi-com.p.rapidapi.com/forecast.json?q=Durham&days=1", {
 	return response.json();
 })
 .then(data => {
+    console.log(data)
     forecast = data
     console.log(forecast.current.temp_f)
     let temp_text = document.createTextNode(`The current temp is ${forecast.current.temp_f}`)
