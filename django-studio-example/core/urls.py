@@ -24,4 +24,5 @@ urlpatterns = [
     path('classes/new', views.add_class, name='add-class'),
     path('classes/<int:pk>/edit', views.edit_class, name='edit-class'),
     path('api/teachers/new', views.ajax_add_teacher, name="ajax-add-teacher"),
+    path('api/classes/new', views.ajax_add_class, name='ajax-add-class')
 ]

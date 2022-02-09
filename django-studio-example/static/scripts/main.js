@@ -19,6 +19,7 @@ function getCookie(name) {
 }
 const csrftoken = getCookie('csrftoken');
 
+// get the elements 
 let classForm = document.querySelector('#class-form')
 let temp = document.querySelector('#weather-data')
 

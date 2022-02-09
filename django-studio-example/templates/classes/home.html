@@ -24,11 +24,15 @@
         </table>
     </section>
     <div class='ph3'>
-        <form id='class-form' action="{% url 'add-class' %}" method="post">
+        <form id='class-form' action="{% url 'ajax-add-class' %}" method="post">
             {% csrf_token %}
             {{ form.as_p }}
             <button class="f6 link dim br-pill ph3 pv2 mb2 dib white bg-hot-pink" type="submit">Add Class</button>
         </form>
+
+
+
+
         <form id='teacher-form' class='tl' action="" method="post">
             {% csrf_token %}
             <input type="text" name="teacher-name" id="teacher-name">

@@ -28,6 +28,23 @@ def add_class(request):
         form = DanceClassForm()
     return render(request, 'classes/add_class.html', {'form': form})
 
+# convert above view to JSON response
+def ajax_add_class(request):
+    data = {}
+    if request.method == "POST":
+        print(request.POST)
+        class_name = request.POST.get('name') 
+        form = DanceClassForm(request.POST)
+
+        if form.is_valid():
+            new_class = form.save()
+            data['saved'] = True
+        data['class_name'] = class_name
+
+    else:
+        data['response': 'nothing to get']
+    return JsonResponse(data)
+
 def edit_class(request, pk):
     selected_class = get_object_or_404(DanceClass, pk=pk)
     if request.method == "POST":
