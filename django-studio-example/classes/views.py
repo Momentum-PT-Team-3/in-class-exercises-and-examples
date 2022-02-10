@@ -1,5 +1,6 @@
 import json
 from functools import reduce
+from pprint import pprint
 import re
 from django.forms import forms
 from django.http import JsonResponse
@@ -32,13 +33,15 @@ def add_class(request):
 def ajax_add_class(request):
     data = {}
     if request.method == "POST":
-        print(request.POST)
+        pprint(request.POST)
         class_name = request.POST.get('name') 
         form = DanceClassForm(request.POST)
 
         if form.is_valid():
             new_class = form.save()
             data['saved'] = True
+        else:
+            data['saved'] = False
         data['class_name'] = class_name
 
     else:
