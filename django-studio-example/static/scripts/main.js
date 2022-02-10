@@ -20,7 +20,7 @@ function getCookie(name) {
 const csrftoken = getCookie('csrftoken');
 
 // get the elements 
-let classForm = document.querySelector('#class-form')
+let danceClassForm = document.querySelector('#class-form')
 let temp = document.querySelector('#weather-data')
 
 let danceClasses = document.querySelectorAll('.dance-classes')
@@ -30,13 +30,31 @@ for (let danceClass of danceClasses){
 }
 // check if js found the div
 const teacherURL = 'api/teachers/new'
+const danceClassURL = 'api/classes/new'
 let teacherForm = document.querySelector('#teacher-form')
 
 // when submit button is clicked, perform a function
 // event refers to the click of the button
-classForm.addEventListener('submit', function (event){
-    // event.preventDefault()
+danceClassForm.addEventListener('submit', function (event){
+    event.preventDefault()
     console.log(event.target)
+    formData = new FormData(danceClassForm)
+    fetch(danceClassURL, {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers:{
+            'Accept': 'application/json',
+            'X-Request-With': 'XMLHttpRequest',
+            'X-CSRFToken': csrftoken,
+        },
+        body: formData
+    })
+    .then(response => {
+        return response.json()
+    })
+    .then(data => {
+        console.log(data)
+    })
 })
 
 teacherForm.addEventListener('submit', function (event){

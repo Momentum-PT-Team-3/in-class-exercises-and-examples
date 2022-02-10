@@ -24,7 +24,8 @@
         </table>
     </section>
     <div class='ph3'>
-        <form id='class-form' action="{% url 'ajax-add-class' %}" method="post">
+        <h2>This is the DanceClassForm, a Django ModelForm</h2>
+        <form class="ba bw2 b--blue" id='class-form' action="{% url 'ajax-add-class' %}" method="post">
             {% csrf_token %}
             {{ form.as_p }}
             <button class="f6 link dim br-pill ph3 pv2 mb2 dib white bg-hot-pink" type="submit">Add Class</button>
@@ -33,7 +34,8 @@
 
 
 
-        <form id='teacher-form' class='tl' action="" method="post">
+        <h2>This is the TeacherForm, just an HTML form</h2>
+        <form class="ba bw2 b--blue" id='teacher-form' class='tl' action="" method="post">
             {% csrf_token %}
             <input type="text" name="teacher-name" id="teacher-name">
             <button type="submit">Add A Teacher</button>
